@@ -1,14 +1,42 @@
 import type { Metadata } from 'next';
-import { Inter, IBM_Plex_Sans_Arabic, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import { Providers } from '@/components/Providers';
 import { readContent } from '@/lib/content';
 import { LANGS, SITE_URL, isLang } from '@/lib/site';
 import type { Lang } from '@/lib/types';
 import '../globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
-const plexArabic = IBM_Plex_Sans_Arabic({ subsets: ['arabic', 'latin'], weight: ['400', '500', '600', '700'], variable: '--font-plex-ar', display: 'swap' });
-const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-jetbrains', display: 'swap' });
+// Fonts are stored in app/fonts/ (Latin + Arabic subsets, woff2) instead of being
+// downloaded from Google on every build — builds no longer depend on the network.
+const inter = localFont({
+  src: [
+    { path: '../fonts/Inter-400.woff2', weight: '400', style: 'normal' },
+    { path: '../fonts/Inter-500.woff2', weight: '500', style: 'normal' },
+    { path: '../fonts/Inter-600.woff2', weight: '600', style: 'normal' },
+    { path: '../fonts/Inter-700.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-inter',
+  display: 'swap',
+});
+const plexArabic = localFont({
+  src: [
+    { path: '../fonts/IBMPlexSansArabic-400.woff2', weight: '400', style: 'normal' },
+    { path: '../fonts/IBMPlexSansArabic-500.woff2', weight: '500', style: 'normal' },
+    { path: '../fonts/IBMPlexSansArabic-600.woff2', weight: '600', style: 'normal' },
+    { path: '../fonts/IBMPlexSansArabic-700.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-plex-ar',
+  display: 'swap',
+});
+const mono = localFont({
+  src: [
+    { path: '../fonts/JetBrainsMono-400.woff2', weight: '400', style: 'normal' },
+    { path: '../fonts/JetBrainsMono-500.woff2', weight: '500', style: 'normal' },
+  ],
+  variable: '--font-jetbrains',
+  display: 'swap',
+  preload: false,
+});
 
 type Params = { params: { lang: string } };
 
