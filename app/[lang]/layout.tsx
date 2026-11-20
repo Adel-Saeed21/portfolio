@@ -55,6 +55,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   return {
     metadataBase: new URL(SITE_URL),
+    icons: { icon: { url: '/icon.svg', type: 'image/svg+xml' } },
     title,
     description,
     alternates: {

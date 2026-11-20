@@ -1,11 +1,18 @@
 import { ImageResponse } from 'next/og';
 import { readContent } from '@/lib/content';
+import { LANGS } from '@/lib/site';
 
 // The preview shown when the site is shared on LinkedIn, WhatsApp, X, Slack…
 // Text is English in both languages: the built-in font has no Arabic glyphs.
 export const alt = 'Portfolio preview';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
+
+// Rendered once per language at build time (needed for the static export).
+export const dynamic = 'force-static';
+export function generateStaticParams() {
+  return LANGS.map((lang) => ({ lang }));
+}
 
 export default async function OpengraphImage() {
   const { profile } = await readContent();

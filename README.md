@@ -65,15 +65,25 @@ Images show in grayscale and turn to color on hover.
 | `lib/i18n.ts` | Interface strings in Arabic and English |
 | `lib/rateLimit.ts` | Failed-login limiter |
 
-## Deploying
+## Deploying (Cloudflare Pages — static)
 
-Set `NEXT_PUBLIC_SITE_URL` to the real domain — canonical links, the sitemap and social previews use it.
+`npm run build` produces a **static site in `out/`**. The editor, login/save API and the
+language middleware are dev-only files (`*.dev.ts`, `*.dev.tsx`) and are left out of it.
 
-Saving writes to `data/content.json` on the server's disk. That works on any Node host
-with a writable disk (VPS, Railway, Render with a disk, Docker).
+**Workflow:** edit at `http://localhost:3000/admin` (`npm run dev`) → **Save** → commit and push
+`data/content.json` → Cloudflare rebuilds the site.
 
-On **Vercel** or other serverless hosts the disk is read-only, so Save will report that it
-couldn't write. Workflow there: edit locally, press **Export**, replace `data/content.json`
-in the repo with the exported file, and push. To save directly in production, swap
-`readContent` / `writeContent` in `lib/content.ts` for a database (e.g. Supabase).
-The login limiter is in-memory, so on serverless it only limits per instance.
+Cloudflare Pages settings:
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | None |
+| Build command | `npm run build` |
+| Build output directory | `out` |
+| Root directory | *(empty)* |
+| Env var `NEXT_PUBLIC_SITE_URL` | `https://<your-project>.pages.dev` (or your domain) |
+| Env var `NODE_VERSION` | `20` |
+
+`public/index.html` sends `/` to `/en` or `/ar`; `public/_headers` sets content types and caching.
+To preview the export locally: `npm run build && npx serve out`.
+Don't run `npm run build` while `npm run dev` is running (they share `.next`).
