@@ -151,3 +151,8 @@ export const Trophy = (p: P) => (
     <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
   </I>
 );
+export const Menu = (p: P) => (
+  <I {...p}>
+    <path d="M4 7h16M4 12h16M4 17h10" />
+  </I>
+);

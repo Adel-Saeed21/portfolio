@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { Providers } from '@/components/Providers';
 import { readContent } from '@/lib/content';
@@ -39,6 +39,18 @@ const mono = localFont({
 });
 
 type Params = { params: { lang: string } };
+
+// Full-screen on notched phones (paired with env(safe-area-inset-*) in CSS), and a
+// browser bar that matches the page colour.
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
+};
 
 export const dynamicParams = false;
 export function generateStaticParams() {

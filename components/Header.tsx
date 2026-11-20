@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { Section } from '@/lib/types';
 import { useApp } from './Providers';
-import { Moon, Sun } from './Icons';
+import { Menu, Moon, Sun, X } from './Icons';
 
 /** Tracks which section is currently in the reading area of the viewport. */
 function useActiveSection(ids: string[]) {
@@ -42,9 +42,24 @@ export default function Header({ name, sections }: { name: string; sections: Sec
   const initial = name.trim().charAt(0) || '·';
   const links = [...sections.map((s) => ({ id: s.id, label: tr(s.title) })), { id: 'contact', label: t('contact_nav') }];
   const active = useActiveSection(links.map((l) => l.id));
+  // Phone-size screens show the sections in a drop-down menu
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false);
+    const wide = window.matchMedia('(min-width: 761px)');
+    const onWide = () => wide.matches && setMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    wide.addEventListener('change', onWide);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      wide.removeEventListener('change', onWide);
+    };
+  }, [menuOpen]);
 
   return (
-    <header className="site-header">
+    <header className={`site-header${menuOpen ? ' menu-open' : ''}`}>
       <div className="header-inner">
         <a href="#top" className="brand">
           <span className="brand-mark" aria-hidden="true">
@@ -52,9 +67,15 @@ export default function Header({ name, sections }: { name: string; sections: Sec
           </span>
           <span className="brand-name">{name}</span>
         </a>
-        <nav className="main-nav" aria-label={lang === 'ar' ? 'أقسام الصفحة' : 'Page sections'}>
+        <nav id="site-nav" className="main-nav" aria-label={lang === 'ar' ? 'أقسام الصفحة' : 'Page sections'}>
           {links.map((l) => (
-            <a key={l.id} href={`#${l.id}`} className={active === l.id ? 'active' : undefined} aria-current={active === l.id ? 'location' : undefined}>
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              className={active === l.id ? 'active' : undefined}
+              aria-current={active === l.id ? 'location' : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
               {l.label}
             </a>
           ))}
@@ -65,6 +86,17 @@ export default function Header({ name, sections }: { name: string; sections: Sec
           </button>
           <button type="button" className="icon-btn" onClick={toggleTheme} aria-label={t('toggle_theme')} title={t('toggle_theme')}>
             {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+          <button
+            type="button"
+            className="icon-btn menu-btn"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-expanded={menuOpen}
+            aria-controls="site-nav"
+            aria-label={t(menuOpen ? 'close' : 'menu')}
+            title={t(menuOpen ? 'close' : 'menu')}
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>

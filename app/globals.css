@@ -219,16 +219,59 @@ button {
   letter-spacing: 0.04em;
 }
 
+/* Menu button only exists on phone-size screens */
+.menu-btn {
+  display: none;
+}
 @media (max-width: 760px) {
   .header-inner {
-    flex-wrap: wrap;
-    gap: 6px 12px;
-    padding: 10px 16px 6px;
+    position: relative;
+    gap: 10px;
+    padding: 10px 16px;
   }
+  .brand {
+    flex: 1;
+    min-width: 0;
+  }
+  .brand-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .header-controls {
+    margin-inline-start: 0;
+  }
+  .menu-btn {
+    display: inline-grid;
+  }
+  /* Sections drop down below the header */
   .main-nav {
-    order: 3;
-    flex-basis: 100%;
-    margin-inline: -12px;
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+    flex-direction: column;
+    gap: 2px;
+    max-height: calc(100svh - 64px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 8px 12px 14px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 28px 40px -28px var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.25s var(--ease), visibility 0s linear 0.25s;
+  }
+  .menu-open .main-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition-delay: 0s;
+  }
+  .main-nav a {
+    padding: 12px 14px;
+    font-size: 1rem;
+    border-radius: 12px;
   }
 }
 
@@ -285,7 +328,9 @@ button {
   animation: pulse 2.4s ease-in-out infinite;
 }
 .highlight-badge {
+  flex-wrap: nowrap;
   gap: 8px;
+  line-height: 1.35;
   background: var(--invert-bg);
   border-color: var(--invert-bg);
   color: var(--invert-ink);
@@ -1605,4 +1650,224 @@ html[lang='ar'] .intro-role {
   .intro {
     display: none !important;
   }
+}
+
+
+/* ==========================================================================
+   Phones & touch screens
+   ========================================================================== */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+.highlight-badge svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Hero */
+  .hero {
+    padding: 36px 16px 44px;
+  }
+  .hero-inner {
+    max-width: none;
+  }
+  .hero-badges {
+    margin-bottom: 22px;
+  }
+  .eyebrow {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 14px;
+  }
+  .hero-name {
+    font-size: clamp(2.3rem, 11.5vw, 3.1rem);
+    letter-spacing: -0.04em;
+  }
+  .hero-tagline {
+    margin: 18px 0 26px;
+    font-size: 1.05rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .btn-solid,
+  .btn-ghost {
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    min-width: 0;
+  }
+  .btn-ghost bdi {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .hero-contacts {
+    gap: 2px 20px;
+  }
+  .contact-link {
+    min-height: 44px;
+  }
+
+  /* Sections */
+  .page-section {
+    padding: 48px 16px;
+    gap: 20px;
+  }
+  .sec-head h2 {
+    font-size: 1.65rem;
+  }
+  .prose-panel {
+    font-size: 1.02rem;
+  }
+  .timeline > li {
+    padding: 22px 0;
+    gap: 6px;
+  }
+  .period {
+    padding-top: 0;
+  }
+  .tl-head h3,
+  .card h3 {
+    font-size: 1.15rem;
+  }
+  .cards {
+    gap: 12px;
+  }
+  .card {
+    padding: 20px;
+  }
+  .card-media {
+    margin: -20px -20px 18px;
+  }
+  .card-top {
+    margin-bottom: 14px;
+  }
+  .skill-row {
+    padding: 16px 0;
+    gap: 8px;
+  }
+  .orn-list li {
+    padding: 14px 2px;
+  }
+  .links {
+    gap: 6px 16px;
+  }
+  .link {
+    min-height: 36px;
+  }
+
+  /* Contact + footer */
+  .contact {
+    padding: 64px 16px;
+  }
+  .contact-title {
+    font-size: 2rem;
+  }
+  .contact-text {
+    font-size: 1rem;
+    margin: 16px 0 26px;
+  }
+  .contact .hero-actions {
+    width: 100%;
+  }
+  .footer-inner {
+    padding: 22px 16px calc(28px + env(safe-area-inset-bottom));
+  }
+
+  /* Editor on phones */
+  .field input,
+  .field textarea,
+  .link-fields input {
+    font-size: 16px; /* stops iOS zooming into fields */
+  }
+  .edit-bar {
+    bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+  .edit-bar-label {
+    display: none;
+  }
+}
+
+/* Pop-ups become bottom sheets on phones */
+@media (max-width: 560px) {
+  .modal-overlay {
+    place-items: end center;
+    padding: 0;
+  }
+  .modal,
+  .modal.narrow {
+    width: 100%;
+    max-height: 88svh;
+    border-radius: 20px 20px 0 0;
+    border-bottom: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    animation: sheet-up 0.3s var(--ease) both;
+  }
+  .choice {
+    padding: 14px;
+  }
+}
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+/* Touch screens: no sticky hover states; give tap feedback instead */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    border-color: var(--border);
+    box-shadow: none;
+  }
+  .card.is-clickable:active {
+    border-color: var(--ink);
+    transform: scale(0.99);
+  }
+  /* Show that cards are tappable, and show screenshots in colour */
+  .card.is-clickable .card-cta {
+    background: var(--invert-bg);
+    border-color: var(--invert-bg);
+    color: var(--invert-ink);
+  }
+  .card-media img,
+  .card:hover .card-media img {
+    filter: none;
+    transform: none;
+  }
+  .btn-solid:hover,
+  .btn-ghost:hover {
+    transform: none;
+  }
+  .btn-solid:active,
+  .btn-ghost:active {
+    transform: scale(0.98);
+  }
+  .orn-list li:hover {
+    padding-inline: 2px;
+    background: none;
+  }
+  .tags li:hover {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--ink-2);
+  }
+  .main-nav a:hover:not(.active) {
+    background: none;
+    color: var(--muted);
+  }
+}
+
+.admin-login {
+  min-height: 100svh;
 }
