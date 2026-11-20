@@ -1,0 +1,586 @@
+{
+  "profile": {
+    "name": {
+      "ar": "عادل سعيد عبدالله",
+      "en": "Adel Saeed Abdullah"
+    },
+    "role": {
+      "ar": "مهندس برمجيات",
+      "en": "Software Engineer"
+    },
+    "tagline": {
+      "ar": "أبني تطبيقات واضحة البنية وسهلة الصيانة بـ Flutter وNext.js وLaravel.",
+      "en": "I build well-structured, maintainable apps with Flutter, Next.js and Laravel."
+    },
+    "highlight": {
+      "ar": "المركز الأول — هاكاثون NASA Space Apps، أسيوط",
+      "en": "1st Place — NASA Space Apps Hackathon, Assiut"
+    },
+    "location": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "email": "dev.adelsaeed@gmail.com",
+    "phone": "01020237163",
+    "github": "https://github.com/Adel-Saeed21",
+    "linkedin": "",
+    "cv": "/Adel_Saeed_CV.pdf"
+  },
+  "sections": [
+    {
+      "id": "about",
+      "type": "text",
+      "title": {
+        "ar": "نبذة",
+        "en": "About"
+      },
+      "visible": true,
+      "body": {
+        "ar": "مهندس برمجيات في بداية مسيرته، بخلفية في علوم الحاسب واهتمام كبير ببناء تطبيقات عالية الجودة وقابلة للتوسع. متمكن من Dart وFlutter وربط واجهات RESTful وإدارة الحالة والبنية النظيفة (Clean Architecture).\nعلى دراية بخدمات Firebase وقواعد البيانات المحلية وربط الأنظمة الخلفية وReact وPHP Laravel، مع تركيز دائم على كتابة كود نظيف سهل الصيانة وتطوير مهاراتي باستمرار.",
+        "en": "Junior software engineer with a background in Computer Science and a strong interest in building scalable, high-quality software. Skilled in Dart, Flutter, RESTful API integration, state management and clean architecture.\nFamiliar with Firebase services, local databases, backend integration, React and PHP Laravel, with a steady focus on clean, maintainable code and on improving my craft."
+      },
+      "items": []
+    },
+    {
+      "id": "experience",
+      "type": "timeline",
+      "title": {
+        "ar": "الخبرات",
+        "en": "Experience"
+      },
+      "visible": true,
+      "items": [
+        {
+          "id": "olqan",
+          "title": {
+            "ar": "مهندس برمجيات",
+            "en": "Software Engineer"
+          },
+          "subtitle": {
+            "ar": "Olqan",
+            "en": "Olqan"
+          },
+          "period": {
+            "ar": "يونيو 2026 – الآن",
+            "en": "June 2026 – Present"
+          },
+          "points": [
+            {
+              "ar": "تطوير وصيانة واجهات RESTful باستخدام PHP Laravel لدعم الوظائف الأساسية للنظام.",
+              "en": "Developed and maintained RESTful APIs with PHP Laravel to support core system functionality."
+            },
+            {
+              "ar": "بناء وصيانة واجهات المستخدم باستخدام Next.js وReact.",
+              "en": "Built and maintained frontend features with Next.js and React."
+            },
+            {
+              "ar": "ربط مكونات الواجهة الأمامية بالواجهات الخلفية لتقديم تجربة موثوقة وفعّالة.",
+              "en": "Integrated frontend components with backend APIs for reliable, efficient user experiences."
+            },
+            {
+              "ar": "الالتزام بمبادئ الكود النظيف وبنية منظمة لتحسين قابلية الصيانة والتوسع.",
+              "en": "Followed clean code principles and a structured architecture to improve maintainability and scalability."
+            }
+          ],
+          "links": [
+            {
+              "label": {
+                "ar": "الموقع",
+                "en": "Website"
+              },
+              "url": "https://olqan.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "type": "cards",
+      "title": {
+        "ar": "المشاريع",
+        "en": "Projects"
+      },
+      "visible": true,
+      "items": [
+        {
+          "id": "nomad",
+          "image": "",
+          "title": {
+            "ar": "Nomad Test Agent",
+            "en": "Nomad Test Agent"
+          },
+          "subtitle": {
+            "ar": "Next.js وFlutter",
+            "en": "Next.js & Flutter"
+          },
+          "description": {
+            "ar": "تطبيق ويب متجاوب مبني بـ Next.js وReact، مع نسخة Flutter متعددة المنصات قيد التطوير.",
+            "en": "A responsive web app built with Next.js and React, with a cross-platform Flutter version in progress."
+          },
+          "points": [
+            {
+              "ar": "استخدام React Query مع التخزين المؤقت لتحسين جلب البيانات وتقليل الطلبات غير الضرورية.",
+              "en": "React Query with caching to optimise data fetching and cut unnecessary API requests."
+            },
+            {
+              "ar": "دعم الوضعين الفاتح والداكن وتحسين استجابة الواجهة.",
+              "en": "Light and dark modes with improved UI responsiveness."
+            },
+            {
+              "ar": "نسخة Flutter ببنية نظيفة وRiverpod وحقن الاعتماديات وقاعدة بيانات Drift محلية.",
+              "en": "Flutter version with Clean Architecture, Riverpod, dependency injection and a local Drift database."
+            }
+          ],
+          "tags": [
+            "Next.js",
+            "React",
+            "React Query",
+            "Flutter",
+            "Riverpod",
+            "Drift"
+          ],
+          "links": [
+            {
+              "label": {
+                "ar": "عرض تجريبي",
+                "en": "Demo"
+              },
+              "url": "https://drive.google.com/file/d/1pOwVgoqxbN9H5dE7H2rkyMcBNBA9HQxH/view?usp=drivesdk"
+            },
+            {
+              "label": {
+                "ar": "GitHub — الويب",
+                "en": "GitHub — Web"
+              },
+              "url": "https://github.com/Nomad-AI-Agent/Test-Agent-Frontend"
+            },
+            {
+              "label": {
+                "ar": "GitHub — الجوال",
+                "en": "GitHub — Mobile"
+              },
+              "url": "https://github.com/Nomad-AI-Agent/test_agent_mobile"
+            }
+          ]
+        },
+        {
+          "id": "sehhalink",
+          "image": "",
+          "title": {
+            "ar": "صحة لينك",
+            "en": "SehhaLink"
+          },
+          "subtitle": {
+            "ar": "تطبيق طبي — قيد التطوير",
+            "en": "Medical mobile app — in progress"
+          },
+          "description": {
+            "ar": "تطبيق لإدارة التحاليل الطبية بملخصات صحية مدعومة بالذكاء الاصطناعي، ومتابعة الأدوية، ومتابعة صحة أفراد الأسرة.",
+            "en": "Manages medical test results with AI-generated health summaries, medication tracking and family health monitoring for parents and children."
+          },
+          "points": [
+            {
+              "ar": "Flutter مع Cubit ونمط Repository وبنية نظيفة قابلة للاختبار.",
+              "en": "Flutter with Cubit, the Repository pattern and a testable clean architecture."
+            },
+            {
+              "ar": "دعم تعدد اللغات واختبارات الوحدات وسير عمل CI/CD عبر Fastlane.",
+              "en": "Localization, unit tests and Fastlane-based CI/CD."
+            }
+          ],
+          "tags": [
+            "Flutter",
+            "Cubit",
+            "Clean Architecture",
+            "Fastlane",
+            "AI"
+          ],
+          "links": [
+            {
+              "label": {
+                "ar": "عرض تجريبي",
+                "en": "Demo"
+              },
+              "url": "https://drive.google.com/file/d/1zKimQ9f9LK_ldq-JJV033-cgS6uhqPKl/view?usp=drive_link"
+            },
+            {
+              "label": {
+                "ar": "GitHub",
+                "en": "GitHub"
+              },
+              "url": "https://github.com/SehhaLink/SehhaLink_Mobile"
+            }
+          ]
+        },
+        {
+          "id": "attendo",
+          "image": "",
+          "title": {
+            "ar": "Attendo",
+            "en": "Attendo"
+          },
+          "subtitle": {
+            "ar": "حضور ذكي وتحقق من الهوية",
+            "en": "Smart attendance & identity verification"
+          },
+          "description": {
+            "ar": "تطبيق Flutter يقرأ البطاقات الشخصية ويتحقق من هوية المستخدم بالكامل على الجهاز، دون أي خادم خارجي.",
+            "en": "A Flutter app that reads ID cards and verifies the user's face fully on-device, with no external server."
+          },
+          "points": [
+            {
+              "ar": "OCR على الجهاز بـ Tesseract ونماذج تعلم آلي لاكتشاف البطاقة واستخراج الحقول وتحويل الأرقام العربية إلى إنجليزية.",
+              "en": "On-device OCR with Tesseract and ML models to detect ID cards, extract fields and normalise Arabic numerals."
+            },
+            {
+              "ar": "خط معالجة للصور وقص متعدد المراحل لرفع دقة القراءة بشكل كبير.",
+              "en": "Image preprocessing and multi-stage cropping that markedly improve OCR accuracy."
+            },
+            {
+              "ar": "خادم محلي على الهاتف يكتشف الأجهزة تلقائياً ويتواصل معها نظيراً لنظير على الشبكة نفسها.",
+              "en": "A phone-hosted local server with automatic device discovery and peer-to-peer sync on the same network."
+            },
+            {
+              "ar": "صلاحيات (مدير/مستخدم)، وتتبع الحضور بالجلسات، وSentry وFastlane.",
+              "en": "Admin/user roles, session-based attendance, Sentry monitoring and Fastlane builds."
+            }
+          ],
+          "tags": [
+            "Flutter",
+            "Tesseract",
+            "ML Kit",
+            "Cubit",
+            "Sentry",
+            "Fastlane"
+          ],
+          "links": [
+            {
+              "label": {
+                "ar": "GitHub",
+                "en": "GitHub"
+              },
+              "url": "https://github.com/Project-XA/Mobile_App"
+            }
+          ]
+        },
+        {
+          "id": "quizroom",
+          "image": "",
+          "title": {
+            "ar": "Quiz-room",
+            "en": "Quiz-room"
+          },
+          "subtitle": {
+            "ar": "نظام اختبارات لسطح المكتب",
+            "en": "Desktop exam management system"
+          },
+          "description": {
+            "ar": "تطبيق Electron.js لإدارة الاختبارات، مع لوحة للطالب تعرض مقرراته واختباراته وتقدمه لحظياً.",
+            "en": "An Electron.js exam app with a student dashboard showing enrolled courses, current exams and live progress."
+          },
+          "points": [
+            {
+              "ar": "تسجيل تلقائي للشاشة أثناء الاختبار، يُقسَّم ويُرفع للمحاضر بأمان لضمان النزاهة.",
+              "en": "Automatic screen recording during exams, chunked and securely uploaded to instructors."
+            },
+            {
+              "ar": "خط تقسيم للفيديو يحفظ نسخاً احتياطية كاملة عند حدوث أي انقطاع.",
+              "en": "A video chunking pipeline that keeps full backups through interruptions."
+            },
+            {
+              "ar": "نتائج الاختبارات وترتيب الطلاب داخل كل مقرر.",
+              "en": "Exam results and per-course rankings."
+            }
+          ],
+          "tags": [
+            "Electron.js",
+            "JavaScript",
+            "Video"
+          ],
+          "links": [
+            {
+              "label": {
+                "ar": "GitHub",
+                "en": "GitHub"
+              },
+              "url": "https://github.com/Adel-Saeed21/Educational_Desktop_Application"
+            },
+            {
+              "label": {
+                "ar": "عرض تجريبي",
+                "en": "Demo"
+              },
+              "url": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "awards",
+      "type": "list",
+      "title": {
+        "ar": "الجوائز",
+        "en": "Awards"
+      },
+      "visible": true,
+      "items": [
+        {
+          "id": "a1",
+          "title": {
+            "ar": "المركز الأول",
+            "en": "1st Place"
+          },
+          "subtitle": {
+            "ar": "هاكاثون NASA Space Apps — أسيوط",
+            "en": "NASA Space Apps Hackathon — Assiut"
+          }
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "type": "chips",
+      "title": {
+        "ar": "المهارات",
+        "en": "Skills"
+      },
+      "visible": true,
+      "items": [
+        {
+          "id": "s1",
+          "title": {
+            "ar": "تطوير تطبيقات الجوال",
+            "en": "Mobile development"
+          },
+          "tags": [
+            "Flutter",
+            "Dart",
+            "Flutter Flavors",
+            "Localization",
+            "Android (Java, Kotlin)"
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "ar": "البنية وإدارة الحالة",
+            "en": "Architecture & state"
+          },
+          "tags": [
+            "Clean Architecture",
+            "SOLID",
+            "Design Patterns",
+            "Cubit",
+            "Bloc",
+            "Riverpod",
+            "Provider"
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "ar": "الواجهات والشبكات",
+            "en": "APIs & networking"
+          },
+          "tags": [
+            "REST APIs",
+            "Dio",
+            "Network Caching",
+            "WebSockets"
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "ar": "قواعد البيانات والخلفية",
+            "en": "Databases & backend"
+          },
+          "tags": [
+            "Firebase",
+            "Supabase",
+            "SQL",
+            "PHP Laravel"
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "ar": "التخزين المحلي",
+            "en": "Local storage"
+          },
+          "tags": [
+            "Shared Preferences",
+            "Hive",
+            "SQLite",
+            "Isar",
+            "Drift"
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "ar": "الدفع والإشعارات",
+            "en": "Payments & notifications"
+          },
+          "tags": [
+            "Stripe",
+            "Paymob",
+            "Local Notifications",
+            "FCM"
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "ar": "توليد الكود وCI/CD",
+            "en": "Codegen & CI/CD"
+          },
+          "tags": [
+            "Freezed",
+            "json_serializable",
+            "Fastlane",
+            "Codemagic",
+            "GitHub Actions"
+          ]
+        },
+        {
+          "id": "s8",
+          "title": {
+            "ar": "الأدوات والجودة",
+            "en": "Tools & quality"
+          },
+          "tags": [
+            "Git",
+            "Unit Testing",
+            "Sentry",
+            "Crashlytics",
+            "DevTools",
+            "Dart Isolates"
+          ]
+        },
+        {
+          "id": "s9",
+          "title": {
+            "ar": "الويب",
+            "en": "Web"
+          },
+          "tags": [
+            "JavaScript",
+            "TypeScript",
+            "React",
+            "Next.js",
+            "React Query",
+            "Redux"
+          ]
+        },
+        {
+          "id": "s10",
+          "title": {
+            "ar": "التطوير بمساعدة الذكاء الاصطناعي",
+            "en": "AI-assisted development"
+          },
+          "tags": [
+            "AI Agents",
+            "MCP",
+            "Agent Skills",
+            "Claude Code",
+            "Prompt Engineering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "type": "timeline",
+      "title": {
+        "ar": "التعليم",
+        "en": "Education"
+      },
+      "visible": true,
+      "items": [
+        {
+          "id": "bsc",
+          "title": {
+            "ar": "بكالوريوس علوم الحاسب",
+            "en": "Bachelor of Computer Science"
+          },
+          "subtitle": {
+            "ar": "كلية الحاسبات والمعلومات، جامعة أسيوط",
+            "en": "Faculty of Computers and Information Technology, Assiut University"
+          },
+          "period": {
+            "ar": "2022 – 2026",
+            "en": "2022 – 2026"
+          },
+          "points": [
+            {
+              "ar": "المعدل التراكمي: 3.58 من 4.00",
+              "en": "GPA: 3.58 / 4.00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "certificates",
+      "type": "list",
+      "title": {
+        "ar": "الشهادات",
+        "en": "Certificates"
+      },
+      "visible": true,
+      "items": [
+        {
+          "id": "c1",
+          "title": {
+            "ar": "أساسيات قواعد البيانات",
+            "en": "Database Fundamentals"
+          },
+          "links": [
+            {
+              "label": {
+                "ar": "الشهادة",
+                "en": "Certificate"
+              },
+              "url": ""
+            }
+          ]
+        },
+        {
+          "id": "c2",
+          "title": {
+            "ar": "مفاهيم الحوسبة السحابية والمحاكاة الافتراضية",
+            "en": "Cloud and Virtualization Concepts"
+          },
+          "links": [
+            {
+              "label": {
+                "ar": "الشهادة",
+                "en": "Certificate"
+              },
+              "url": ""
+            }
+          ]
+        },
+        {
+          "id": "c3",
+          "title": {
+            "ar": "إدارة أنظمة Red Hat — المستوى الأول",
+            "en": "Red Hat System Administration I"
+          },
+          "links": [
+            {
+              "label": {
+                "ar": "الشهادة",
+                "en": "Certificate"
+              },
+              "url": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

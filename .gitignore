@@ -1,0 +1,9 @@
+node_modules
+.next
+
+# Environment files hold secrets (ADMIN_PASSWORD) — never commit them.
+.env
+.env*.local
+.env.production
+.env.development
+!.env.example
