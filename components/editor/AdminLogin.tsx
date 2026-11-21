@@ -42,7 +42,9 @@ export default function AdminLogin() {
           <span lang={lang === 'ar' ? 'en' : 'ar'}>{lang === 'ar' ? 'EN' : 'ع'}</span>
         </button>
         <button type="button" className="icon-btn" onClick={toggleTheme} aria-label={t('toggle_theme')} title={t('toggle_theme')}>
-          {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          <span key={theme} className="theme-icon">
+            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          </span>
         </button>
       </div>
 

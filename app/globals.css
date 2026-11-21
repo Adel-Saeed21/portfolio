@@ -1931,3 +1931,38 @@ html[data-lang-switch='to-rtl']::view-transition-new(root) {
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   Theme switch — the new theme grows as a circle from the toggle button
+   (the circle itself is animated from Providers.tsx).
+   ========================================================================== */
+html[data-theme-switch]::view-transition-old(root),
+html[data-theme-switch]::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html[data-theme-switch]::view-transition-old(root) {
+  z-index: 1;
+}
+html[data-theme-switch]::view-transition-new(root) {
+  z-index: 2;
+}
+/* Snap colours instantly so the circle reveals the finished theme */
+html[data-theme-switch] *,
+html[data-theme-switch] *::before,
+html[data-theme-switch] *::after {
+  transition: none !important;
+}
+
+/* Sun / moon icon spins in when it changes */
+.theme-icon {
+  display: inline-grid;
+  place-items: center;
+  animation: theme-icon-in 0.55s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+@keyframes theme-icon-in {
+  from {
+    opacity: 0;
+    transform: rotate(-120deg) scale(0.4);
+  }
+}

@@ -87,7 +87,9 @@ export default function Header({ name, sections }: { name: string; sections: Sec
             </span>
           </button>
           <button type="button" className="icon-btn" onClick={toggleTheme} aria-label={t('toggle_theme')} title={t('toggle_theme')}>
-            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+            <span key={theme} className="theme-icon">
+              {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+            </span>
           </button>
           <button
             type="button"

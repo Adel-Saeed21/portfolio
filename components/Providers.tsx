@@ -9,7 +9,8 @@ type AppCtx = {
   lang: Lang;
   theme: Theme;
   toggleLang: () => void;
-  toggleTheme: () => void;
+  /** Pass the click event to start the reveal from the button that was pressed. */
+  toggleTheme: (e?: React.MouseEvent<HTMLElement>) => void;
   /** UI string */
   t: (key: UIKey) => string;
   /** Pick the current language from a bilingual value, falling back to the other */
@@ -20,7 +21,7 @@ const Ctx = createContext<AppCtx | null>(null);
 
 /** View Transitions API (Chrome/Edge 111+, Safari 18+, Firefox 144+); typed loosely for older TS libs. */
 type ViewTransitionDoc = Document & {
-  startViewTransition?: (update: () => void) => { finished: Promise<void> };
+  startViewTransition?: (update: () => void) => { ready: Promise<void>; finished: Promise<void> };
 };
 
 const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -82,12 +83,44 @@ export function Providers({ children, initialLang }: { children: React.ReactNode
     );
   }, [lang]);
 
-  const toggleTheme = useCallback(() => {
-    const next: Theme = theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    persist('theme', next);
-    setTheme(next);
-  }, [theme]);
+  const toggleTheme = useCallback(
+    (e?: React.MouseEvent<HTMLElement>) => {
+      const next: Theme = theme === 'dark' ? 'light' : 'dark';
+      const el = document.documentElement;
+      const apply = () => {
+        el.setAttribute('data-theme', next);
+        persist('theme', next);
+        flushSync(() => setTheme(next));
+      };
+
+      const doc = document as ViewTransitionDoc;
+      if (!doc.startViewTransition || prefersReducedMotion()) return apply();
+
+      // Circle grows from the centre of the button that was pressed (or the
+      // top corner if called without a click) until it covers the screen.
+      const rect = e?.currentTarget.getBoundingClientRect();
+      const x = rect ? rect.left + rect.width / 2 : window.innerWidth - 40;
+      const y = rect ? rect.top + rect.height / 2 : 40;
+      const r = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+
+      el.setAttribute('data-theme-switch', '');
+      const vt = doc.startViewTransition(apply);
+      vt.ready
+        .then(() => {
+          el.animate(
+            { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`] },
+            {
+              duration: 650,
+              easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
+              pseudoElement: '::view-transition-new(root)',
+            },
+          );
+        })
+        .catch(() => {});
+      vt.finished.finally(() => el.removeAttribute('data-theme-switch'));
+    },
+    [theme],
+  );
 
   const value = useMemo<AppCtx>(
     () => ({
