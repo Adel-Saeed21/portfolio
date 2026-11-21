@@ -434,16 +434,10 @@
         {
           "id": "s7",
           "title": {
-            "ar": "توليد الكود وCI/CD",
-            "en": "Codegen & CI/CD"
+            "ar": "توليد الكود وCI/CD وDevOps",
+            "en": "Codegen, CI/CD & DevOps"
           },
-          "tags": [
-            "Freezed",
-            "json_serializable",
-            "Fastlane",
-            "Codemagic",
-            "GitHub Actions"
-          ]
+          "tags": ["Freezed", "json_serializable", "Fastlane", "Codemagic", "GitHub Actions", "Docker", "Containers"]
         },
         {
           "id": "s8",
