@@ -1871,3 +1871,63 @@ button {
 .admin-login {
   min-height: 100svh;
 }
+
+/* ==========================================================================
+   Language switch — the new language wipes in along its reading direction
+   (left→right into English, right→left into Arabic). Uses View Transitions;
+   other browsers get a short fade from Providers.tsx.
+   ========================================================================== */
+html[data-lang-switch]::view-transition-old(root) {
+  animation: lang-out 0.65s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+html[data-lang-switch]::view-transition-new(root) {
+  animation: 0.65s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+html[data-lang-switch='to-ltr']::view-transition-new(root) {
+  animation-name: lang-wipe-ltr;
+}
+html[data-lang-switch='to-rtl']::view-transition-new(root) {
+  animation-name: lang-wipe-rtl;
+}
+@keyframes lang-wipe-ltr {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes lang-wipe-rtl {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes lang-out {
+  to {
+    opacity: 0.25;
+    transform: scale(0.985);
+    filter: blur(3px);
+  }
+}
+
+/* The EN / ع label flips in when it changes */
+.lang-btn span {
+  display: inline-block;
+  animation: lang-flip 0.45s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+@keyframes lang-flip {
+  from {
+    opacity: 0;
+    transform: rotateY(90deg) scale(0.7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}

@@ -82,7 +82,9 @@ export default function Header({ name, sections }: { name: string; sections: Sec
         </nav>
         <div className="header-controls">
           <button type="button" className="icon-btn lang-btn" onClick={toggleLang} aria-label={t('toggle_lang')} title={t('toggle_lang')}>
-            <span lang={lang === 'ar' ? 'en' : 'ar'}>{lang === 'ar' ? 'EN' : 'ع'}</span>
+            <span key={lang} lang={lang === 'ar' ? 'en' : 'ar'}>
+              {lang === 'ar' ? 'EN' : 'ع'}
+            </span>
           </button>
           <button type="button" className="icon-btn" onClick={toggleTheme} aria-label={t('toggle_theme')} title={t('toggle_theme')}>
             {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
